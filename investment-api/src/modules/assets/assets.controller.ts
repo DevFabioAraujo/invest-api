@@ -1,4 +1,11 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get} from '@nestjs/common';
+import { AssetsService } from './assets.service';
 
 @Controller('assets')
-export class AssetsController {}
+export class AssetsController {
+  constructor(private readonly assetsService: AssetsService) {}
+    @Get()
+    getallAssets() {
+        return this.assetsService.getAll();
+    }
+}
